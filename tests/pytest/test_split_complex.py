@@ -180,7 +180,7 @@ def test_nonexistent_input_raises(tmp_path):
 
 
 def test_nonexistent_work_dir_raises(pdb_file, tmp_path):
-    # A non-existent work_dir must raise — the function must not silently create arbitrary directories.
+    # A non-existent work_dir must raise, the function must not silently create arbitrary directories.
     with pytest.raises(Exception):
         split_complex(pdb_file, work_dir=str(tmp_path / "nonexistent"), ligand_name="LIG")
 
@@ -194,7 +194,7 @@ def test_wrong_extension_raises(tmp_path):
 
 
 def test_empty_ligand_name_raises(pdb_file, tmp_path):
-    # Empty ligand_name matches no residue — must fail fast rather than write a 0-atom SDF.
+    # Empty ligand_name matches no residue, must fail fast rather than write a 0-atom SDF.
     with pytest.raises(ValueError):
         split_complex(pdb_file, work_dir=str(tmp_path), ligand_name="")
 
