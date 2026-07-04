@@ -5,7 +5,7 @@ This module contains all paths to tools integrated in ProtFlow. PRE_CMD are comm
 PROTFLOW_DIR = "" # "/path/to/ProtFlow/"
 
 # protflow environment python
-PROTFLOW_ENV = "" # "/path/to/package_manager/envs/protflow/bin/python3"
+PROTFLOW_ENV = "" # "/path/to/package_manager/envs/protflow/bin/"
 
 # auxiliary runners directory path
 #TODO: @Markus Implement checkup if AUXILIARY_RUNNER_SCRIPTS_DIR points to the correct directory (Think about pointing to protflow directory)!
@@ -18,6 +18,11 @@ PROTEIN_GENERATOR_SCRIPT_PATH = ""
 LIGANDMPNN_SCRIPT_PATH = "" # "/path/to/LigandMPNN/run.py"
 LIGANDMPNN_PYTHON_PATH = "" # "/path/to/anaconda3/envs/ligandmpnn_env/bin/python3"
 LIGANDMPNN_PRE_CMD = "" # "echo 'this will be printed before running ligandmpnn'"
+
+# PottsMPNN
+POTTSMPNN_DIR = "" # "/path/to/PottsMPNN"
+POTTSMPNN_PYTHON = "" # "/path/to/anaconda3/envs/PottsMPNN/bin/python"
+POTTSMPNN_PRE_CMD = ""
 
 # rosetta.py
 ROSETTA_BIN_PATH = "" # "/path/to/Rosetta/main/source/bin/"
@@ -107,3 +112,7 @@ SIGMADOCK_PRE_CMD = "" # "export PATH=/path/to/package_manager/envs/sigmadock/bi
 
 # hbplus
 HPLUS_PATH = "" # "/path/to/hbplus/hbplus"
+
+# hydraprot
+HYDRAPROT_DIR_PATH = "" #"/path/to/HydraProt"
+HYDRAPROT_PYTHON_PATH = "" # "/path/to/miniconda3/envs/hydraprot/bin/python"
