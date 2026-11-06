@@ -1218,6 +1218,8 @@ class RFdiffusion3(Runner):
             output_path=work_dir,
         )
 
+        self._validate_run_outputs(work_dir)
+
         # collect and validate scores
         scores = collect_scores(
             work_dir=work_dir,
@@ -1255,6 +1257,9 @@ class RFdiffusion3(Runner):
 
         logging.info(f"{self} finished. Returning {len(poses.df.index)} poses.")
         return poses
+
+    def _validate_run_outputs(self, work_dir: str) -> None:
+        """Hook for specialized runners to validate completion before collection."""
 
     def _rfd3_renumber_worker_script(self) -> str:
         """Return the configured RFD3 renumbering worker script path."""
@@ -2126,13 +2131,20 @@ def _normalize_rfd3_output_names(output_dir: str) -> None:
 
 def _rfd3_output_jsons(work_dir: str) -> list[str]:
     """
-    Return normalized RFDiffusion3 output JSON sidecars for *work_dir*.
+    Return normalized sidecars, including accelerated per-job subdirectories.
+
+    The optimization kit's opt_manifest.json records execution metadata rather
+    than a design and must not be collected as a structure sidecar.
     """
     output_dir = os.path.join(work_dir, "outputs")
     if not os.path.isdir(output_dir):
         return []
-    _normalize_rfd3_output_names(output_dir)
-    return sorted(glob(os.path.join(output_dir, "*.json")))
+    for directory, _, _ in os.walk(output_dir):
+        _normalize_rfd3_output_names(directory)
+    return sorted(
+        path for path in glob(os.path.join(output_dir, "**", "*.json"), recursive=True)
+        if os.path.basename(path) != "opt_manifest.json"
+    )
 
 
 def _resolve_rfd3_spec_input_path(input_pdb: str, sidecar_json: str) -> str:

@@ -45,6 +45,12 @@ RFDIFFUSION3_PYTHON_PATH = "" # "/path/to/miniconda3/envs/RFD3/bin/python"
 RFDIFFUSION3_PRE_CMD = ""
 
 
+# rfd4_proteina.py (prepared, condition-annotated CIF inputs)
+RFD4_PROTEINA_DIR = "" # "/path/to/RFD4-Proteina"
+RFD4_PROTEINA_PYTHON_PATH = "" # "/path/to/conda/envs/rfd4/bin/python"
+RFD4_PROTEINA_PRE_CMD = "" # environment setup required by your installation
+
+
 # esmfold.py
 ESMFOLD_PYTHON_PATH = "" # "/path/to/miniconda3/envs/esm/bin/python"
 ESMFOLD_PRE_CMD = ""
@@ -85,6 +91,11 @@ MINIFOLD_PRE_CMD = ""
 RFDIFFUSION3_BIN_PATH = "" # "/path/to/mambaforge/envs/rfd3/bin/rfd3"
 RFDIFFUSION3_MODEL_DIR = "" # "/path/to/foundry/models/rfd3/checkpoints/"
 RFDIFFUSION3_PRE_CMD = ""
+
+# RFdiffusion3 optimization kit (uplifting-biomolecular-modeling)
+RFDIFFUSION3_ACCELERATED_BIN_PATH = "" # "/path/to/envs/rfd3-acc/bin/rfdiffusion3-opt"
+RFDIFFUSION3_ACCELERATED_MODEL_DIR = "" # optional; falls back to RFDIFFUSION3_MODEL_DIR
+RFDIFFUSION3_ACCELERATED_PRE_CMD = "" # CUDA/environment and persistent JIT cache setup
 
 # protein generator
 PROTEIN_GENERATOR_PYTHON_PATH = ""
